@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   get 'support' => 'static_pages#support'
 
   get 'signup' => 'users#new'
+
+  get 'login' => 'sessions#create'
+  post 'login' => 'sessions#new'
+  delete 'logout' => 'sessions#destroy'
   resources :users
 end
