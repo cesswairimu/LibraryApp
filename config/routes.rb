@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/new'
 
  root 'static_pages#home'
 
@@ -7,5 +6,5 @@ Rails.application.routes.draw do
 
   get 'support' => 'static_pages#support'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'signup' => 'users#new'
 end
