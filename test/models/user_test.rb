@@ -1,14 +1,13 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
   def setup
     @user = User.new(name: "Ceciliah", username: "@Cessy", email: "cessmkali@wew.com", 
                     password: "terrence", password_confirmation: "terrence")
   end
 
 
-test "username should be unique" do
+test "email addresses should be unique" do
   duplicate_user = @user.dup
   @user.save
   assert_not duplicate_user.valid?
