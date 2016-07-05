@@ -3,6 +3,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, length: { maximum: 30 }, 
-            uniqueness: true, format: { with: VALID_REGEX }
+            uniqueness: { case_sensitive: false }, format: { with: VALID_REGEX }
+  has_secure_password
+  validates :password, length: { minimum: 6 }
   
 end
