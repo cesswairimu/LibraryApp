@@ -1,21 +1,27 @@
 
-<h1>Sign Up</h1>
-<p>Find me in app/views/users/new.html.erb</p>
 <%= form_for(@user) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+
+    <%= render 'shared/error_messages' %>
+
+<%= f.label :name %>
+<%= f.text_field :name %><br><br>
 
   <%= f.label :username %>
-    <%= f.text_field :username %>
+    <%= f.text_field :username %><br><br>
+
 
     <%= f.label :email %>
-    <%= f.email_field :email %>
+    <%= f.email_field :email %><br><br>
+
 
     <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password %><br><br>
+
 
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation %><br><br>
 
-    <%= f.submit %>
+
+    <%= f.submit %><br><br>
+
     <% end %>
