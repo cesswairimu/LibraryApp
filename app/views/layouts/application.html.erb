@@ -10,8 +10,13 @@
 
   </head>
   <body>
+      <% flash.each do |flash_type, flash_message| %>
+            <div id="messages" class="callout small <%= flash_type %>" data-closable>
+                    <%= flash_message %>
+                                 </div>
+                                 <% end %>
        <%= render 'layouts/header' %>
-       <#% flash.each do |message_type, message| %>
+
     <%= yield %>
  <%= render 'layouts/footer' %>
 
