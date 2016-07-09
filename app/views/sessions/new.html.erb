@@ -5,8 +5,10 @@
     <%= f.label :password %>
     <%= f.password_field :password %><br> <br>
 
-    <%= f.submit "Log in" %>
+    <%= f.check_box "Remember me"%>
+    <%= f.label :Remember_me %><br>
 
+    <%= f.submit "Log in" %>
 <% end %>
 <p> Are you new here? <%= link_to "SignUp", signup_path %></p>
 
