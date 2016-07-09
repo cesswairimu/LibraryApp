@@ -23,6 +23,12 @@ test "name should be present" do
   assert_not @user.valid?
 end
 
+test "email should be present" do
+  @user.email = ""
+  assert_not @user.valid?
+end
+
+
 test "email should length not big" do
   @user.email = "a" * 50 + "@example.com"
   assert_not @user.valid?
