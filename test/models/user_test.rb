@@ -13,6 +13,16 @@ test " username should be unique" do
   assert_not duplicate_user.valid?
 end
 
+test "username should be present" do
+  @user.username = ""
+  assert_not @user.valid?
+end
+
+test "name should be present" do
+  @user.name = ""
+  assert_not @user.valid?
+end
+
 test "email should length not big" do
   @user.email = "a" * 50 + "@example.com"
   assert_not @user.valid?
