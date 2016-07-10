@@ -34,4 +34,9 @@ class User < ApplicationRecord
     #comparing rem_token and digest
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
+
+  #logout user and setting the remember_digest to nil(empty)
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
 end
