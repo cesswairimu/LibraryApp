@@ -19,5 +19,10 @@ def log_out
  @current_user = nil
 
 end
-
+#creating a user remember cookie
+def remember(user)
+user.remember
+cookies[:user.id] = { value:user_id, expires: 7.days.from_now.utc }
+cookies[:rem_token] = {value: rem_token, expires: 7.days.from_now.utc }
+end
 end
