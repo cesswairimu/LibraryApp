@@ -2,6 +2,9 @@ require 'test_helper'
 
 class UsersSignupTest < ActionDispatch::IntegrationTest
   # test "the truth" do
+  def setup
+    @user = users(:cess)
+  end
   #   assert true
   # end
   test "invalid sign_up information" do
