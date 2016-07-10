@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  #creating an accessible attribute for the digest
+  attr_accessor :rem_token
   before_save { self.email = email.downcase }
   before_save { self.username = username.downcase }
   VALID_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -18,5 +20,12 @@ class User < ApplicationRecord
   #creating a new token method
   def User.new_token
     SecureRandom.urlsafe_base64
+  end
+
+  #defining  method for user remember token
+  #use of self ensures a local variable is not used
+  def remember
+    self.rem_token  = User.new_token
+    update_attribute(:remember_digest, User.digest(rem_token))
   end
 end
