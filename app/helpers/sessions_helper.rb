@@ -32,7 +32,7 @@ end
 def remember(user)
 user.remember
 #decrypts the user id cookie
-cookies.signed[:user.id] = { value:user_id, expires: 7.days.from_now.utc }
+cookies.signed[:user_id] = { value:user_id, expires: 7.days.from_now.utc }
 cookies[:rem_token] = {value: rem_token, expires: 7.days.from_now.utc }
 end
 
