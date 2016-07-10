@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:session][:username])
     if user && user.authenticate(params[:session][:password])
       log_in user
-      remember user
+      #handling submission of the remember token
+      params[:session][:remember_me] == '1' ? remember(user) : forget (user)
       redirect_to user
     else
       flash[:danger] = "Check your user/password combination"

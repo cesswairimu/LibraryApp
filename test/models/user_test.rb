@@ -45,4 +45,7 @@ end
     assert_not @user.valid?
   end
 
+test "return false authenticated? for a user with nil digest" do
+assert_not @user.authenticated?('')
+end
 end
