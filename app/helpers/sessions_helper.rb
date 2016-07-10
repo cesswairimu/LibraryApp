@@ -23,6 +23,7 @@ module SessionsHelper
   end
   #deletes the session created above
 def log_out
+  forget(current_user)
   session.delete(:user_id)
  @current_user = nil
 
@@ -33,5 +34,12 @@ user.remember
 #decrypts the user id cookie
 cookies.signed[:user.id] = { value:user_id, expires: 7.days.from_now.utc }
 cookies[:rem_token] = {value: rem_token, expires: 7.days.from_now.utc }
+end
+
+#forgetting a perstitence session and delete cookies
+def forget(user)
+user.forget
+cookies.delete(:user_id)
+cookies.delete(:rem_token)
 end
 end
