@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      #login user after sign up
       log_in @user
       flash[:success] = "Welcome to our Library"
       redirect_to @user
