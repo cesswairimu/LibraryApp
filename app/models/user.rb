@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   #creating an accessible attribute for the digest
-  attr_accessor :rem_token
+  attr_accessor :rem_token, :activation_token
   before_save :downcase_email
   before_save { self.username = username.downcase }
   before_create :create_activation_digest
@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
   #creates and assigns activation digest and token
   def create_activation_digest
-self.activation =  User.new_token
+self.activation_token =  User.new_token
 self.activation_digest = User.digest(activation_token)
   end
   #creating a new token method
