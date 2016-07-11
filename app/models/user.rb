@@ -33,7 +33,7 @@ class User < ApplicationRecord
   def authenticated?(rem_token)
     return false if remember_digest.nil?
     #comparing rem_token and digest
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    BCrypt::Password.new(remember_digest).is_password?(rem_token)
   end
 
   #logout user and setting the remember_digest to nil(empty)

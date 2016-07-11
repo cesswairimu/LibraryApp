@@ -11,16 +11,20 @@ class ActiveSupport::TestCase
   #testing the behaviour if a user is logged in after signup 
   def is_logged_in?
     !session[:user_id].nil?
-
   end
   # login a test user
   def login_as(user, options = {})
     password = options[:password] || 'password'
     remember_me = options[:remember_me] || '1'
     if integration_test?
-      post login_path, session: { username: user.username,
-                                  password: password,
-                                  remember_me: remember_me }
+      post login_path, params: {
+      session: {
+        username: user.username,
+        password: password,
+        remember_me: remember_me 
+      }
+
+      }
     else
       session[:user_id] = user_id
     end
