@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+ # def index
+  #  @users = User.all
+  #end
+  
   def create
     @user = User.new(user_params)
     if @user.save
@@ -29,7 +33,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = "You just updated your profile!!!"
 
       redirect_to @user
     else
@@ -39,7 +43,7 @@ class UsersController < ApplicationController
   
   private
   def logged_in_user
-    unless logged_in?
+    unless logged_in
       flash[:danger] = "Please log in."
       redirect_to login_url
     end
