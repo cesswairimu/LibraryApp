@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   #creating an accessible attribute for the digest
   attr_accessor :rem_token
-  before_save { self.email = email.downcase }
+  before_save :downcase_email
   before_save { self.username = username.downcase }
+  before_create :create_activation_digest
   VALID_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :name, presence: true
   validates :username, presence: true, uniqueness: true
@@ -17,6 +18,17 @@ class User < ApplicationRecord
     BCrypt::Password.create(string, cost: cost)
   end
 
+
+  #converts all emails to downcase
+  def downcase_email
+    self.email = email.downcase
+  end
+
+  #creates and assigns activation digest and token
+  def create_activation_digest
+self.activation =  User.new_token
+self.activation_digest = User.digest(activation_token)
+  end
   #creating a new token method
   def User.new_token
     SecureRandom.urlsafe_base64
