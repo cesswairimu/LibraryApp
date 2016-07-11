@@ -6,10 +6,13 @@ messages{
 
 }
 #messages.danger {
-        background-color: #800000;
+        background-color: green;
 
 }
 #messages.success {
-        background-color:#808000; 
+        background-color:red; 
 
+}
+#messages.info {
+     background-color:blue;
 }
