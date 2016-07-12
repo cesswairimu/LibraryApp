@@ -5,10 +5,11 @@
     <%= f.label :password %>
     <%= f.password_field :password %><br> <br>
 
+    <%= link_to "(Forgot password bunch?!)", new_password_reset_path %><br>
 
     <%= f.label :remember_me do %>
-        <%= f.check_box "remember_me"%> <br>
-    <span>Remember me here</span>
+        <%= f.check_box "remember_me"%> 
+        <span>Remember me here</span><br>
     <% end %>
     <%= f.submit "Log in" %>
 <% end %>
