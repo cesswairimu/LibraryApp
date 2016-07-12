@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   #creating an accessible attribute for the digest
-  attr_accessor :rem_token, :activation_token
+  attr_accessor :rem_token, :activation_token, :reset_token
   before_save :downcase_email
   before_save { self.username = username.downcase }
   before_create :create_activation_digest
@@ -34,6 +34,16 @@ self.activation_digest = User.digest(activation_token)
     SecureRandom.urlsafe_base64
   end
 
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_attribute(:reset_digest, User.digest(reset_token))
+    update_attribute(:reset_sent_at, Time.zone.now))
+
+  end
+
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver.now
+  end
   #defining  method for user remember token
   #use of self ensures a local variable is not used
   def remember
