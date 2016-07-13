@@ -10,11 +10,19 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
 get new_password_reset_path
 assert_template 'password_resets/new'
 #for invalid username
-post password_resets_path, password_reset: { username: " " }
+post password_resets_path, params:{
+  password_reset:
+  { username: " " 
+}
+}
 assert_not flash.empty?
-assert_template 'password_reset/new'
+assert_template 'password_resets/new'
 #for valid username
-post password_resets_path, password_reset: { username: @user.username }
+post password_resets_path, params: {
+  password_reset:{
+   username: @user.username
+}
+}
 assert_not_equal @user.reset_digest, @user.reload.reset_digest
 assert_equal 1, ActionMailer::Base.deliveries.size
 assert_not flash.empty?
