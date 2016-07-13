@@ -20,6 +20,19 @@ class PasswordResetsController < ApplicationController
       render 'new'
     end
   end
+  def update
+    if password_blank?
+      flash.now[:danger] = "Password cannot be blank"
+      render 'edit'
+    elsif @user.update_attributes(user_params)
+      log_in @user
+      flash[:success] = "Password has been reset"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
   def get_user
     @user = User.find_by(username: params[:username])
   end
