@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       log_in user
       #handling submission of the remember token
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_back_or user
+      redirect_to user
     else
       message = "Account not activated"
       message += "Check your email  for  activation"
