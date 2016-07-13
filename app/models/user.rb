@@ -70,4 +70,8 @@ self.activation_digest = User.digest(activation_token)
   def send_activation_email
       UserMailer.account_activation(self).deliver_now
   end
+def reset_expired?
+  reset_sent_at < 3.hours.ago
+end
+
 end
