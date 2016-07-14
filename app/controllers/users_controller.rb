@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :logged_in_user, only: [:edit, :update]
-  before_action :admin, only: [:index]
+  before_action :admin, only: :index
   def new
     @user = User.new
   end
@@ -43,6 +43,9 @@ class UsersController < ApplicationController
     end
   end
 
+
+
+
   private
   def logged_in_user
     unless logged_in
@@ -51,11 +54,7 @@ class UsersController < ApplicationController
     end
   end
 #confirm a user is an admin
-  def admin
-    redirect_to root_url unless current_user.admin?
-  end
-
-
+  
   def user_params
     params.require(:user).permit(:name, :username, :email, :password,
                                  :password_confirmation)
