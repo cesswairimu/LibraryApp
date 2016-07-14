@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'books/add'
+
   root 'static_pages#home'
 
   get 'about' => 'static_pages#about'
