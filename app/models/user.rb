@@ -56,7 +56,7 @@ self.activation_digest = User.digest(activation_token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
     #comparing rem_token and digest
-    BCrypt::Password.new(remember_digest).is_password?(token)
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
   #logout user and setting the remember_digest to nil(empty)
