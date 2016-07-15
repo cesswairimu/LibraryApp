@@ -1,17 +1,13 @@
 class UsersController < ApplicationController
 
   before_action :logged_in_user, only: [:edit, :update]
-  before_action :admin, only: :index
+  before_action :admin, only: [:index]
   def new
     @user = User.new
   end
 
   def show
     @user = User.find(params[:id])
-  end
-
-  def admin
-    current_user.admin?
   end
 
   def index
@@ -58,7 +54,10 @@ class UsersController < ApplicationController
     end
   end
 #confirm a user is an admin
-  
+  def admin
+    current_user.admin?
+  end
+
   def user_params
     params.require(:user).permit(:name, :username, :email, :password,
                                  :password_confirmation)
