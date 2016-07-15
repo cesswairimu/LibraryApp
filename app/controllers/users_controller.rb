@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def admin
+    current_user.admin?
+  end
+
   def index
     @users = User.all
   end
