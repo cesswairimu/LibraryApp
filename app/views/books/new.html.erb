@@ -1,6 +1,6 @@
 <h1> Add a Book</h1>
 <% if current_user.admin %>
-    <% form_for(@book) do |f| %>
+    <% form_for @book, url: books_path do |f| %>
         <%= f.label :title %>
         <%= f.text_field :title %><br>
         <%= f.label :category %>
