@@ -1,24 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>LibraryApp</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-
   </head>
-  <body>
-      <% flash.each do |flash_type, flash_message| %>
-            <div id="messages" class="callout small <%= flash_type %>" data-closable>
-                    <%= flash_message %>
-                                 </div>
-                                 <% end %>
-       <%= render 'layouts/header' %>
 
+  <body>
+
+    <%= render 'layouts/header' %>
     <%= yield %>
- <%= render 'layouts/footer' %>
 
   </body>
 </html>
