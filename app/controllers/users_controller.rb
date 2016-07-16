@@ -55,10 +55,7 @@ class UsersController < ApplicationController
     end
   end
 #confirm a user is an admin
-  def admin
-    current_user.admin?
-  end
-
+  
   def user_params
     params.require(:user).permit(:name, :username, :email, :password,
                                  :password_confirmation)
