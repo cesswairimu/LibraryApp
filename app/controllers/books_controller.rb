@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :admin, only: [:create]
 
   def new
     @book = Book.new
