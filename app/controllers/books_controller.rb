@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :admin, only: [:create]
+  before_action :admin, only: [:create, :edit, :update]
 
   def new
     @book = Book.new
@@ -21,8 +21,23 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-
   end
+
+  def edit
+    @book = Book.find_by(params[:id])
+  end
+
+  def update
+    @book = Book.find(params[:id])
+    if @book.update_attributes(book_params)
+      flash[:success] = "Book has been changed"
+      redirect_to root_url
+    else
+      flash[:danger] = "Error editing book"
+      render 'edit'
+    end
+  end
+
   private
   def book_params
     params.require(:book).permit(:title, 
