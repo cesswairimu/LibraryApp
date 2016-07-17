@@ -1,0 +1,7 @@
+<li>
+    <% if current_user.admin?  %>
+        | <%= link_to "Edit", edit_book_path, 
+            data: { confirm: "You sure?"  } %>
+        <li> <%= link_to "Add Book", new_book_path %> </li>
+    <% end %>
+</li>
