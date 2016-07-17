@@ -1,7 +1,8 @@
 <li>
     <% if current_user.admin?  %>
-        | <%= link_to "Edit", edit_book_path, 
-            data: { confirm: "You sure?"  } %>
-        <li> <%= link_to "Add Book", new_book_path %> </li>
+        | <%= link_to "Edit", edit_book_path %>|
+            <%= link_to "Add Book", new_book_path %> 
+            | <%= link_to "delete",  method: :delete,
+                data: { confirm: "You sure?"  } %>
     <% end %>
 </li>
