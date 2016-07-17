@@ -1,18 +1,18 @@
 li {
     display: inline
 }
-messages{
+flash{
         color: black;
 
 }
-#messages.danger {
-        background-color: green;
+#flash.danger {
+        background-color:maroon;
 
 }
-#messages.success {
-        background-color:red; 
+#flash.success {
+        background-color:darkgreen; 
 
 }
-#messages.info {
-     background-color:blue;
+#flash.info {
+     background-color:skyblue;
 }
