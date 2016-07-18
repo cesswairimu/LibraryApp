@@ -5,4 +5,11 @@
     <td><%= book.author %></td>
     <td><%= book.quantity %></td>
     <td><%= book.publisher %><td>
+            <% if admin %>
+                <td><%= link_to "Edit", edit_book_path(book) %>| 
+                    
+                    <%= link_to "delete", book, method: :delete, data: {confirm:
+                                                                 "Sure you wonna do this?"} %>
+            </td>
+            <% end %>
 </tr>
