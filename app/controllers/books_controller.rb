@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
-  before_action :admin, only: [:create, :edit, :update, :delete]
   before_action :logged_in_user, only: [:index]
+  before_action :admin_user, except: [:index]
 
   def new
     @book = Book.new
@@ -25,21 +25,22 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find_by(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def update
     @book = Book.find(params[:id])
     if @book.update_attributes(book_params)
       flash[:success] = "Book has been changed"
-      redirect_to root_url
+      redirect_to books_url
     else
-      flash[:danger] = "Error editing book"
+
+      flash.now[:danger] = "Error editing book"
       render 'edit'
     end
   end
   #destroy a  book
-  def delete
+  def destroy
     Book.find(params[:id]).destroy
     flash[:info] = "Book has been deleted"
     redirect_to books_url
@@ -50,5 +51,12 @@ class BooksController < ApplicationController
     params.require(:book).permit(:title, 
                                  :category, :quantity,
                                  :author, :publisher)
+  end
+
+  def admin_user
+     unless admin
+       redirect_to books_url
+       flash.now[:danger] = "You are not allowed to perform this action"
+     end
   end
 end
