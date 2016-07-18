@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  belongs_to :user
+  #belongs_to :user
   default_scope -> { order(id: :asc)  }
   validates :title, presence: true
   validates :author, presence: true
