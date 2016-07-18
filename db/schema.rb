@@ -18,10 +18,8 @@ ActiveRecord::Schema.define(version: 20160714195207) do
     t.integer  "quantity"
     t.string   "author"
     t.string   "publisher"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_books_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
