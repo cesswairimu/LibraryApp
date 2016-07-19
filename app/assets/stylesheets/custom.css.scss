@@ -1,12 +1,14 @@
-li {
+.top-bar{
+    li {
     display: inline
+}
 }
 flash{
         color: black;
 
 }
 #flash.danger {
-        background-color:maroon;
+        background-color:orange;
 
 }
 #flash.success {
@@ -16,3 +18,14 @@ flash{
 #flash.info {
      background-color:skyblue;
 }
+
+#error_messages {
+    color: black;
+    ul {
+        color:maroon;
+        margin: 0 0 30px 0;
+
+    }
+
+}
+
