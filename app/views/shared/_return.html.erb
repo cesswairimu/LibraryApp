@@ -1,4 +1,0 @@
-<%= form_for(current_user.relationships.find_by(borrowed_id: @book.id),
-             html: { method: :delete  }) do |f| %>
-             <%= f.submit "Return", class: "btn" %>
-             <% end %>
