@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  book: one
+  due_date: 2016-07-20 16:33:30
+  charges: 1.5
+  status: 1
+
+two:
+  user: two
+  book: two
+  due_date: 2016-07-20 16:33:30
+  charges: 1.5
+  status: 1

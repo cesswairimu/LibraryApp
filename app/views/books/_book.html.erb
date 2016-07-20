@@ -5,7 +5,11 @@
     <td><%= book.author %></td>
     <td><%= book.quantity %></td>
     <td><%= book.publisher %><td>
-
+            <%= form_for current_user.bids.build do |f| %>
+                <%= f.hidden_field :user_id %>
+                <%= f.hidden_field :book_id, value: book.id %>
+                <%= f.submit "Borrow", class: "button", id: "submit_button" %>
+                <% end %>
             <% if admin %>
                 <td><%= link_to "Edit", edit_book_path(book) %>| 
                     
