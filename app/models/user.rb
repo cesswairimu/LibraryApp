@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  has_many  :relationships, class_name: "Relationship",
+                            foreign_key: "borrowed_id",
+                            dependent: :destroy
+  has_many :books, through: :relationships, source: :borrowed
   #creating an accessible attribute for the digest
   attr_accessor :rem_token, :activation_token, :reset_token
   before_save :downcase_email
@@ -68,10 +72,24 @@ self.activation_digest = User.digest(activation_token)
     update_attribute(:activated_at, Time.zone.now)
   end
   def send_activation_email
-      UserMailer.account_activation(self).deliver_now
+    UserMailer.account_activation(self).deliver_now
   end
-def reset_expired?
-  reset_sent_at < 3.hours.ago
-end
+  def reset_expired?
+    reset_sent_at < 3.hours.ago
+  end
+  #borrow a book
+  def borrow
+    relationships.create(borrowed_id: book.id)
+  end
+
+  #return a book to the lib
+  def return(book)
+    relationships.create(borrowed_id: book.id).destroy
+  end
+
+  #return true if a user has a certain book
+  def books?(book)
+    book.include?(book)
+  end
 
 end
