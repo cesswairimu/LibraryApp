@@ -15,9 +15,21 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
 
   delete 'logout' => 'sessions#destroy'
-# get 'edit_book' => 'books#edit'
-  resources :users
+  get 'book' => 'books#show'
+  resources :users do
+    member do
+      get :book, :borrower
+    end
+  end
+  get 'borrow' => 'users#borrow'
+
+
   resources :account_activations, only:[:edit]
   resources :password_resets, only:[:new, :create, :edit, :update]
-  resources :books 
+  resources :books do
+  member do
+    get :book, :borrower
+  end
+end
+  resources :relationships
 end
