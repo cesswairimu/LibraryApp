@@ -21,9 +21,9 @@ class UsersController < ApplicationController
       @user.send_activation_email
       flash[:info] = "Check your email to activate account"
       #login user after sign up
-      # log_in @user
-      #flash[:success] = "Welcome to our Library"
-      redirect_to root_url
+       log_in @user
+      flash[:success] = "Welcome to our Library   You have 5 days to activate"
+      render 'show'
     else
       render 'new'
     end
@@ -43,25 +43,10 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-  def borrow
-    # @title  = "Borrowed Books"
-    @book = Book.find(params[:id])
-    if @book.quantity == 0
-      flash[:danger] = "No book in the library"
-      redirect_to books_path
-    else
-      @books = Relationship.create(id: @book.id)
-      flash[:success] = "Success Cessssssss!!!!"
-      redirect_to books_path
-    end
-  end
-  def return
-
-  end
 
 
   private
-  
+
   def user_params
     params.require(:user).permit(:name, :username, :email, :password,
                                  :password_confirmation)
