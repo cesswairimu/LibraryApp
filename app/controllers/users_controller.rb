@@ -19,11 +19,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
-      flash[:info] = "Check your email to activate account"
+      flash.now[:info] = "Check your email to activate account"
       #login user after sign up
        log_in @user
-      flash[:success] = "Welcome to our Library   You have 5 days to activate"
       render 'show'
+      flash[:success] = "Welcome to our Library   You have 5 days to activate"
     else
       render 'new'
     end
