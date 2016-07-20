@@ -4,6 +4,7 @@ class Book < ApplicationRecord
                            dependent: :destroy
   #has_many :borrowers, through: :relationships, source: :borrower
   has_many :users
+  has_many :bids
   default_scope -> { order(id: :asc)  }
   validates :title, presence: true
   validates :author, presence: true

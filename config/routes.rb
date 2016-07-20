@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'index' => 'users#index'
 
   post 'login' => 'sessions#create'
+  resources :bids
 
   delete 'logout' => 'sessions#destroy'
   get 'book' => 'books#show'

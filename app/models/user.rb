@@ -3,6 +3,7 @@ class User < ApplicationRecord
                             foreign_key: "borrowed_id",
                             dependent: :destroy
   has_many :books, through: :relationships, source: :borrowed
+  has_many :bids
   #creating an accessible attribute for the digest
   attr_accessor :rem_token, :activation_token, :reset_token
   before_save :downcase_email
