@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :logged_in_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update, :borrow, :return]
   before_action :admin, only: [:index]
   def new
     @user = User.new
@@ -43,8 +43,21 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+  def borrow
+    # @title  = "Borrowed Books"
+    @book = Book.find(params[:id])
+    if @book.quantity == 0
+      flash[:danger] = "No book in the library"
+      redirect_to books_path
+    else
+      @books = Relationship.create(id: @book.id)
+      flash[:success] = "Success Cessssssss!!!!"
+      redirect_to books_path
+    end
+  end
+  def return
 
-
+  end
 
 
   private
