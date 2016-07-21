@@ -1,27 +1,25 @@
-<tr>
-    <td> <%= book.id %></td>
-    <td><%= book.title %></td>
-    <td><%= book.category %></td>
-    <td><%= book.author %></td>
-    <td><%= book.quantity %></td>
-    <td><%= book.publisher %><td>
-            <%= form_for current_user.bids.build do |f| %>
-                <%= f.hidden_field :user_id %>
-                <%= f.hidden_field :book_id, value: book.id %>
-                <% if !current_user.admin %>
-                           <% if !current_user.bids.include?(book) %>
-                                                   <%= f.submit "Borrow", class: "button", id: "submit_button" %>
-                <% else %>
-                    <%= link_to "Requested", "#",  class: "button", id: "submit_button" %>
+<table>
+    <tr>
+        <td> <%= book.id %></td>
+        <td><%= book.title %></td>
+        <td><%= book.category %></td>
+        <td><%= book.author %></td>
+        <td><%= book.quantity %></td>
+        <td><%= book.publisher %><td>
+                <%= form_for current_user.bids.build do |f| %>
+                    <%= f.hidden_field :user_id %>
+                    <%= f.hidden_field :book_id, value: book.id %>
+                    <% if !current_user.admin %>
+                        <%= f.submit "Borrow", class: "button", id: "submit_button" %>
 
+                    <% end %>
                 <% end %>
-                <% end %>
+                <% if admin %>
+                    <td><%= link_to "Edit", edit_book_path(book) %>| 
+
+                        <%= link_to "delete", book, method: :delete, data: {confirm:
+                                                                            "Sure you wonna do this?"} %>
+                </td>
             <% end %>
-            <% if admin %>
-                <td><%= link_to "Edit", edit_book_path(book) %>| 
-
-                    <%= link_to "delete", book, method: :delete, data: {confirm:
-                                                                        "Sure you wonna do this?"} %>
-            </td>
-        <% end %>
-</tr>
+    </tr>
+</table>
