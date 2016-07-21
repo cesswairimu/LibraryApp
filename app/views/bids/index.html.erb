@@ -1,47 +1,47 @@
 <h1> Books Requested</h1>
 <div>
-        <table>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Book title</th>
+            <th> Author </th>
+        </tr>
+        <%  @requests.each do |bid|  %>
             <tr>
-                <th>ID</th>
-                <th>Username</th>
-                <th>Book title</th>
-                <th> Author </th>
-            </tr>
-            <%  @requests.each do |bid|  %>
-                <tr>
-                    <td><%= bid.id %> </td>
-                    <td><%= bid.user.username %> </td>
-                    <td><%= bid.book.title %> </td>
-                    <td><%= bid.book.author %> </td>
-                    <td><%=  link_to "Release", release_path(bid_id: bid.id, 
-                                                             status: "borrowed"), method: :post, class: "button" %>
+                <td><%= bid.id %> </td>
+                <td><%= bid.user.username %> </td>
+                <td><%= bid.book.title %> </td>
+                <td><%= bid.book.author %> </td>
+                <td><%=  link_to "Release", release_path(bid_id: bid.id, 
+                                                         status: "borrowed"),  class: "button" %>
 
-            </tr>
-<% end %>
+        </tr>
+    <% end %>
 
-</table>
-        <h1> Books Out </h1>
-        <table>
+    </table>
+    <h1> Books Out </h1>
+    <table>
 
-
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Book title</th>
+            <th> Author </th>
+        </tr>
+        <%  @releases.each do |bid|  %>
             <tr>
-                <th>ID</th>
-                <th>Username</th>
-                <th>Book title</th>
-                <th> Author </th>
-            </tr>
-            <%  @releases.each do |bid|  %>
-                <tr>
-                    <td><%= bid.id %> </td>
-                    <td><%= bid.user.username %> </td>
-                    <td><%= bid.book.title %> </td>
-                    <td><%= bid.book.author %> </td>
-                    <td><%= link_to "Return", "#", class: "button" %>
+                <td><%= bid.id %> </td>
+                <td><%= bid.user.username %> </td>
+                <td><%= bid.book.title %> </td>
+                <td><%= bid.book.author %> </td>
+                <td><%= link_to "Return", bid,  method: :delete, data: 
+                    {confirm: "Is the book really returned?"}, class: "button" %>
 
-                </tr>
-            <% end %>
+        </tr>
+    <% end %>
 
-        </table>
-    </div>
+    </table>
+</div>
 </div>
 
