@@ -13,15 +13,14 @@ Rails.application.routes.draw do
   get 'index' => 'users#index'
 
   post 'login' => 'sessions#create'
-  resources :bids
 
   delete 'logout' => 'sessions#destroy'
   get 'book' => 'books#show'
+  t 'release' => 'bids#release'
+
   resources :users 
-
-
   resources :account_activations, only:[:edit]
   resources :password_resets, only:[:new, :create, :edit, :update]
   resources :books 
-  resources :relationships
+  resources :bids
 end
