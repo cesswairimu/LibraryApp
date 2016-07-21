@@ -8,13 +8,20 @@
             <%= form_for current_user.bids.build do |f| %>
                 <%= f.hidden_field :user_id %>
                 <%= f.hidden_field :book_id, value: book.id %>
-                <%= f.submit "Borrow", class: "button", id: "submit_button" %>
+                <% if !current_user.admin %>
+                           <% if !current_user.bids.include?(book) %>
+                                                   <%= f.submit "Borrow", class: "button", id: "submit_button" %>
+                <% else %>
+                    <%= link_to "Requested", "#",  class: "button", id: "submit_button" %>
+
                 <% end %>
+                <% end %>
+            <% end %>
             <% if admin %>
                 <td><%= link_to "Edit", edit_book_path(book) %>| 
-                    
+
                     <%= link_to "delete", book, method: :delete, data: {confirm:
-                                                                 "Sure you wonna do this?"} %>
+                                                                        "Sure you wonna do this?"} %>
             </td>
-            <% end %>
+        <% end %>
 </tr>
