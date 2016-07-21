@@ -1,23 +1,47 @@
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Username</th>
-        <th>Book title</th>
-        <th> Author </th>
-        <th>Copies</th>
-    </tr>
-    <%  @bids.each do |bid|  %>
-        <tr>
-            <td><%= bid.id %> </td>
-            <td><%= bid.user.username %> </td>
-            <td><%= bid.book.title %> </td>
-            <td><%= bid.book.author %> </td>
-            <td><%= bid.book.quantity%></td>
-            <td><%=  link_to "Release", release_path(bid_id: bid.id, 
-                                                     status: "borrowed"), method: :post, class: "button" %>
+<h1> Books Requested</h1>
+<div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Book title</th>
+                <th> Author </th>
+            </tr>
+            <%  @requests.each do |bid|  %>
+                <tr>
+                    <td><%= bid.id %> </td>
+                    <td><%= bid.user.username %> </td>
+                    <td><%= bid.book.title %> </td>
+                    <td><%= bid.book.author %> </td>
+                    <td><%=  link_to "Release", release_path(bid_id: bid.id, 
+                                                             status: "borrowed"), method: :post, class: "button" %>
 
-    </tr>
+            </tr>
 <% end %>
 
 </table>
+        <h1> Books Out </h1>
+        <table>
+
+
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Book title</th>
+                <th> Author </th>
+            </tr>
+            <%  @releases.each do |bid|  %>
+                <tr>
+                    <td><%= bid.id %> </td>
+                    <td><%= bid.user.username %> </td>
+                    <td><%= bid.book.title %> </td>
+                    <td><%= bid.book.author %> </td>
+                    <td><%= link_to "Return", "#", class: "button" %>
+
+                </tr>
+            <% end %>
+
+        </table>
+    </div>
+</div>
 
