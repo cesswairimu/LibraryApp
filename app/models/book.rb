@@ -1,8 +1,4 @@
 class Book < ApplicationRecord
-  has_many :relationships, class_name: "Relationship",
-                           foreign_key: "borrowed_id",
-                           dependent: :destroy
-  #has_many :borrowers, through: :relationships, source: :borrower
   has_many :users
   has_many :bids
   default_scope -> { order(id: :asc)  }
@@ -11,4 +7,12 @@ class Book < ApplicationRecord
   validates :publisher, presence: true
   validates :quantity, presence: true, numericality: true
   validates :category, presence: true
+
+  def release
+    decrement(:quantity, 1)
+  end
+
+  def return
+    increment(:quantity, 1)
+  end
 end
