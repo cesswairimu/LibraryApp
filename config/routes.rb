@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   delete 'logout' => 'sessions#destroy'
   get 'book' => 'books#show'
-  t 'release' => 'bids#release'
+  post 'release' => 'bids#release'
 
   resources :users 
   resources :account_activations, only:[:edit]
