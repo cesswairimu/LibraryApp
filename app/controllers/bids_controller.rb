@@ -22,7 +22,9 @@ class BidsController < ApplicationController
   end
 
   def release
-    @bid = Bid.find(params[:id])
+    @bid = Bid.find(params[:bid_id])
+    book = Book.find(@bid.book_id)
+    book.release.save
     @bid.update_attribute(:status, params[:status])
     flash[:success] = "You have checked out this book"
     redirect_to bids_path
@@ -30,6 +32,8 @@ class BidsController < ApplicationController
 
 def destroy
   @bid = Bid.find(params[:id]).destroy
+  book = Book.find(@bid.book_id)
+  book.return.save
   flash[:info] = "Book was returned!!"
   redirect_to bids_path
 end
