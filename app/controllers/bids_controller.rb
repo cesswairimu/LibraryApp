@@ -13,7 +13,8 @@ class BidsController < ApplicationController
     end
   end
   def index
-    @bids = Bid.all
+    @requests = Bid.requested
+    @releases = Bid.borrowed
   end
 
   def show
