@@ -5,10 +5,10 @@ class BidsController < ApplicationController
   def create
     @bid = Bid.new(bid_params)
     if @bid.save
-      flash[:success] = "Ceeeeeeeeeeeeeessssssssssssssssssssss!!!!!!!!!!!!!!!!!!!! "
+      flash[:success] = "You have requested for the #{@bid.book.title}"
       redirect_to books_path
     else
-      flash[:danger] = "Problem requesting for a book"
+      flash[:danger] = "Problem requesting for a book #{@bid.book.title}"
       redirect_to books_path
     end
   end
@@ -22,14 +22,17 @@ class BidsController < ApplicationController
   end
 
   def release
-    @bid = Bid.find(params[:bid_id])
+    @bid = Bid.find(params[:id])
     @bid.update_attribute(:status, params[:status])
     flash[:success] = "You have checked out this book"
     redirect_to bids_path
   end
 
-
-
+def destroy
+  @bid = Bid.find(params[:id]).destroy
+  flash[:info] = "Book was returned!!"
+  redirect_to bids_path
+end
   private
 
   def bid_params
