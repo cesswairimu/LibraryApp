@@ -4,11 +4,16 @@ class BidsController < ApplicationController
   end
   def create
     @bid = Bid.new(bid_params)
+    begin
     if @bid.save
       flash[:success] = "You have requested for the #{@bid.book.title}"
       redirect_to books_path
     else
       flash[:danger] = "Problem requesting for a book #{@bid.book.title}"
+      redirect_to books_path
+    end
+    rescue
+      flash[:danger] = "You've already requested for this book."
       redirect_to books_path
     end
   end
