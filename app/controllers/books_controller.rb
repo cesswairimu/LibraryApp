@@ -1,6 +1,5 @@
 class BooksController < ApplicationController
-  before_action :logged_in_user, only: [:index]
-  before_action :admin_user, except: [:index]
+  before_action :admin, only: [:new, :edit, :destroy, :update]
 
   def new
     @book = Book.new
@@ -53,10 +52,10 @@ class BooksController < ApplicationController
                                  :author, :publisher)
   end
 
-  def admin_user
-     unless admin
-       redirect_to books_url
-       flash.now[:danger] = "You are not allowed to perform this action"
-     end
-  end
+  # def admin_user
+  #    unless admin
+  #      redirect_to books_url
+  #      flash.now[:danger] = "You are not allowed to perform this action"
+  #    end
+  # end
 end
