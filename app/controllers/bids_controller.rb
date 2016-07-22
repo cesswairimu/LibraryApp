@@ -1,4 +1,7 @@
 class BidsController < ApplicationController
+  before_action :logged_in_user, only: [:new, :create]
+
+  before_action :admin, only: [:index, :show, :release, :destroy]
   def new
     @bid = Bid.new
   end
