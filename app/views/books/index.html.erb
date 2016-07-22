@@ -1,5 +1,5 @@
 <h1> Books In the Library</h1>
-<% if admin %>
+<% if current_user.admin %>
     <ul>
     <li> <%= link_to "Add Book", new_book_path %>
     <li> <%= link_to "Books requested", bids_path %>

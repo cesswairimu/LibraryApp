@@ -13,7 +13,7 @@
 
                     <% end %>
                 <% end %>
-                <% if admin %>
+                <% if current_user.admin %>
                     <td><%= link_to "Edit", edit_book_path(book) %>| 
 
                         <%= link_to "delete", book, method: :delete, data: {confirm:
