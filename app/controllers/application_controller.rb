@@ -5,12 +5,21 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
 
-  private
   #require a user to be logged in
- def logged_in_user
+  def logged_in_user
     unless logged_in
       flash[:danger] = "Please log in."
       redirect_to login_url
     end
- end
+  end
+
+  #Flash if current user is not admin
+  def admin
+    unless current_user.admin?
+      redirect_to root_url
+      flash[:danger] = "You have no access here"
+    end
+  end
+
 end
+
