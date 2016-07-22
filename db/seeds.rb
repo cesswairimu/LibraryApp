@@ -15,7 +15,7 @@ User.create!( name: "lawrence",
              password_confirmation: "lawrence",
              activated: true,
              activated_at: Time.zone.now)
-
+puts "seeding books"
 100.times do  
   title = Faker::Book.title
   category = Faker::Book.genre
@@ -28,6 +28,7 @@ User.create!( name: "lawrence",
             quantity: quantity,
             author: author,
             publisher: publisher)
+  print '.'
 end
 
 
