@@ -1,6 +1,5 @@
 class BidsController < ApplicationController
   before_action :logged_in_user, only: [:new, :create]
-
   before_action :admin, only: [:index, :show, :release, :destroy]
   def new
     @bid = Bid.new
@@ -34,6 +33,7 @@ class BidsController < ApplicationController
     book = Book.find(@bid.book_id)
     book.release.save
     @bid.update_attribute(:status, params[:status])
+    @bid.update_attribute(:due_date, params[:due_date])
     flash[:success] = "You have checked out this book"
     redirect_to bids_path
   end
