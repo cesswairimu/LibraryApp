@@ -14,7 +14,7 @@
                 <td><%= bid.book.title %> </td>
                 <td><%= bid.book.author %> </td>
                 <td><%=  link_to "Release", release_path(bid_id: bid.id, 
-                                                         status: "borrowed"),  class: "button" %>
+                                                         status: "borrowed", due_date: "7 days remaining"),  class: "button" %>
 
         </tr>
     <% end %>
