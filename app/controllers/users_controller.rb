@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @books = Book.all
+    @borrowed = Bid.borrowed
   end
 
   def index
