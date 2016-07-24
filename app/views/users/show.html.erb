@@ -1,4 +1,24 @@
 <%= @user.username %> <br>
 
 <%= @user.email %> <br>
+<h1> Books Borrowed </h1>
+<table>
+    <tr> 
+        <th> Book Title </th>
+        <th> Author </th>
+        <th> Due date </th>
+        <th>Charges</th>
+        </tr>
+        <tr>
+      
+<% @borrowed.each do  |book|%>
+    <% if current_user.id == book.user.id %>
+    <td><%= book.book.title %> </td>
+    <td><%= book.book.author%> </td>
+    <td><%= book.due_date %> </td>
+    <td><%= book.charges %> </td>
+                </tr>
+                <% end %>
+                </table>
+                <% end %>
 
