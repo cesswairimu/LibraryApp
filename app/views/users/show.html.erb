@@ -9,16 +9,19 @@
         <th> Due date </th>
         <th>Charges</th>
         </tr>
-        <tr>
       
 <% @borrowed.each do  |book|%>
     <% if current_user.id == book.user.id %>
+
+        <tr>
     <td><%= book.book.title %> </td>
     <td><%= book.book.author%> </td>
     <td><%= book.due_date %> </td>
     <td><%= book.charges %> </td>
+
                 </tr>
                 <% end %>
-                </table>
+
                 <% end %>
 
+                </table>
