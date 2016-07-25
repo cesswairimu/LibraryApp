@@ -1,4 +1,5 @@
 class BidsController < ApplicationController
+  include BidsHelper
   before_action :logged_in_user, only: [:new, :create]
   before_action :admin, only: [:index, :show, :release, :destroy]
   def new
@@ -32,8 +33,8 @@ class BidsController < ApplicationController
     @bid = Bid.find(params[:bid_id])
     book = Book.find(@bid.book_id)
     book.release.save
+
     @bid.update_attribute(:status, params[:status])
-    @bid.update_attribute(:due_date, params[:due_date]).due_date
     flash[:success] = "You have checked out this book"
     redirect_to bids_path
   end
@@ -45,14 +46,13 @@ def destroy
   flash[:info] = "Book was returned!!"
   redirect_to bids_path
 end
+def lost
+end
   private
 
   def bid_params
     params.require(:bid).permit(:user_id, :book_id)
   end
 
- def due_date
-bid[:due_date] =  14.days.from_now
-  end
 
 end
