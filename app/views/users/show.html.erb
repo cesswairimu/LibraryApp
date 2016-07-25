@@ -10,14 +10,14 @@
         <th>Charges</th>
         </tr>
       
-<% @borrowed.each do  |book|%>
-    <% if current_user.id == book.user.id %>
+<% @borrowed.each do  |bid|%>
+    <% if current_user.id == bid.user.id %>
 
         <tr>
-    <td><%= book.book.title %> </td>
-    <td><%= book.book.author%> </td>
-    <td><%= book.due_date %> </td>
-    <td><%= book.charges %> </td>
+    <td><%= bid.book.title %> </td>
+    <td><%= bid.book.author%> </td>
+    <td><%= bid.due_date %> </td>
+    <td><%= bid.charges %> </td>
 
                 </tr>
                 <% end %>
