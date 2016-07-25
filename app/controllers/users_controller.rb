@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :logged_in_user, only: [:edit, :update, :borrow, :return]
+  before_action :logged_in_user, only: [:edit, :update]
   before_action :admin, only: [:index]
   def new
     @user = User.new
