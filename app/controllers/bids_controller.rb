@@ -1,5 +1,4 @@
 class BidsController < ApplicationController
-  include BidsHelper
   before_action :logged_in_user, only: [:new, :create]
   before_action :admin, only: [:index, :show, :release, :destroy]
   def new
@@ -44,9 +43,12 @@ def destroy
   book = Book.find(@bid.book_id)
   book.return.save
   flash[:info] = "Book was returned!!"
-  redirect_to bids_path
+  redirect_to bids_pat
 end
 def lost
+    @bid = Bid.find(params[:bid_id])
+    @bid.update_attribute(:status, params[:status])
+  @lost = Bid.lost
 end
   private
 
