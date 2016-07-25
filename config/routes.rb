@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   get 'release' => 'bids#release'
+  get 'lost' => 'bids#lost'
 
   resources :users
   resources :account_activations, only:[:edit]
