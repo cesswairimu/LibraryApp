@@ -16,8 +16,10 @@
         <tr>
     <td><%= bid.book.title %> </td>
     <td><%= bid.book.author%> </td>
-    <td><%= bid.due_date %> </td>
+    <td><%=  %> </td>
     <td><%= bid.charges %> </td>
+    <td> <%= link_to "Lost",lost_path(bid_id: bid.id) status: "lost" , class: "button" %>
+
 
                 </tr>
                 <% end %>
