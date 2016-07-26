@@ -11,7 +11,7 @@ class BidsController < ApplicationController
       flash[:success] = "You have requested for the #{@bid.book.title}"
       redirect_to books_path
     else
-      flash[:danger] = "Problem requesting for a book #{@bid.book.title}"
+      flash[:info] = "Problem requesting for a book #{@bid.book.title}"
       redirect_to books_path
     end
     rescue
@@ -38,23 +38,20 @@ class BidsController < ApplicationController
     redirect_to bids_path
   end
 
-def destroy
-  @bid = Bid.find(params[:id]).destroy
-  book = Book.find(@bid.book_id)
-  book.return.save
-  flash[:info] = "Book was returned!!"
-  redirect_to bids_pat
-end
-def lost
-    @bid = Bid.find(params[:bid_id])
-    @bid.update_attribute(:status, params[:status])
-  @lost = Bid.lost
-end
+  def destroy
+    @bid = Bid.find(params[:id]).destroy
+    book = Book.find(@bid.book_id)
+    book.return.save
+    flash[:info] = "Book was returned!!"
+    redirect_to bids_pat
+  end
+
   private
 
   def bid_params
     params.require(:bid).permit(:user_id, :book_id)
   end
 
-
 end
+
+
