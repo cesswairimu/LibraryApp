@@ -30,6 +30,7 @@
             <th>Book title</th>
             <th> Author </th>
             <th> Return date </th>
+            <th> Charges<th>
         </tr>
         <%  @releases.each do |bid|  %>
             <tr>
@@ -38,6 +39,9 @@
                 <td><%= bid.book.title %> </td>
                 <td><%= bid.book.author %> </td>
                 <td> <%= days_remaining(bid) unless bid.due_date.nil? %></td>
+                <td> <%= form_tag %>
+                <%= text_field_tag :Surcharge %>
+             </td>
                 <td><%= link_to "Return", bid,  method: :delete, data: 
                     {confirm: "Is the book really returned?"}, class: "button" %></td>
 
