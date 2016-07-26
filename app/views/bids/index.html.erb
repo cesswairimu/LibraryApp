@@ -37,7 +37,7 @@
                 <td><%= bid.user.username %> </td>
                 <td><%= bid.book.title %> </td>
                 <td><%= bid.book.author %> </td>
-                <td> <%= days_remaining(bid)%></td>
+                <td> <%= days_remaining(bid) unless bid.due_date.nil? %></td>
                 <td><%= link_to "Return", bid,  method: :delete, data: 
                     {confirm: "Is the book really returned?"}, class: "button" %></td>
 
