@@ -1,4 +1,8 @@
 <h1> Books In the Library</h1>
+<%= form_tag books_path, :method => 'get' do %>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Search", :name => nil %>
+<% end %>
 <% if current_user.admin %>
     <ul class="top-bar">
     <li> <%= link_to "Add Book", new_book_path %> |

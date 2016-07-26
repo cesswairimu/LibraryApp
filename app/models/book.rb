@@ -15,4 +15,11 @@ class Book < ApplicationRecord
   def return
     increment(:quantity, 1)
   end
+
+
+  def self.search(search)
+    where("title  like ?", "%#{search}%") 
+  end
+
+
 end
