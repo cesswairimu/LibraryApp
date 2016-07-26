@@ -1,6 +1,7 @@
 <%= @user.username %> <br>
 
 <%= @user.email %> <br>
+<% if @borrowed.any? %>
 <h1> Books Borrowed </h1>
 <table>
     <tr> 
@@ -27,3 +28,4 @@
                 <% end %>
 
                 </table>
+                <% end %>
