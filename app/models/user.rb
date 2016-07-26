@@ -46,6 +46,9 @@ self.activation_digest = User.digest(activation_token)
   def send_password_reset_email
     UserMailer.password_reset(self).deliver_now
   end
+  def send_release_email
+    UserMailer.release_book(self).deliver_now
+  end
   #defining  method for user remember token
   #use of self ensures a local variable is not used
   def remember

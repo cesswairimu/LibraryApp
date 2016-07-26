@@ -30,10 +30,12 @@ class BidsController < ApplicationController
 
   def release
     @bid = Bid.find(params[:bid_id])
+    due_date = 20.days.from_now
     book = Book.find(@bid.book_id)
     book.release.save
-
-    @bid.update_attribute(:status, params[:status])
+    @bid.update_attributes(status: "borrowed", due_date: due_date)
+    @user = User.find_by(id: @bid.user_id)
+    @user.send_release_email
     flash[:success] = "You have checked out this book"
     redirect_to bids_path
   end
@@ -43,7 +45,7 @@ class BidsController < ApplicationController
     book = Book.find(@bid.book_id)
     book.return.save
     flash[:info] = "Book was returned!!"
-    redirect_to bids_pat
+    redirect_to bids_path
   end
 
   private
