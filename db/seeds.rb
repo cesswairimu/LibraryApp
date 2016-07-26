@@ -16,7 +16,7 @@ User.create!( name: "lawrence",
              activated: true,
              activated_at: Time.zone.now)
 puts "seeding books"
-100.times do  
+200.times do  
   title = Faker::Book.title
   category = Faker::Book.genre
   quantity = Faker::Number.between(10, 20)
