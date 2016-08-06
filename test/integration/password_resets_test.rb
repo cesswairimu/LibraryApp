@@ -43,27 +43,31 @@ assert_redirected_to root_url
  # Right email, right token
  get edit_password_reset_path(user.reset_token, username: user.username)
  assert_template 'password_resets/edit'
- assert_select "input[name=username][type=hidden][value=?]", user.username
  # Invalid password & confirmation
- patch password_reset_path(user.reset_token),
+ patch password_reset_path(user.reset_token), params: {
  username: user.username,
- user: { password:
+user: { password:
  "foobaz",
  password_confirmation: "barquux" }
+ }
  # Blank password
  patch password_reset_path(user.reset_token),
+   params: {
  username: user.username,
  user: { password:
  " ",
  password_confirmation: "foobar" }
+ }
  assert_not flash.empty?
  assert_template 'password_resets/edit'
  # Valid password & confirmation
  patch password_reset_path(user.reset_token),
+   params: {
  username: user.username,
  user: { password:
  "lawrence",
  password_confirmation: "lawrence" }
+ }
  assert is_logged_in?
  assert_not flash.empty?
  assert_redirected_to user
