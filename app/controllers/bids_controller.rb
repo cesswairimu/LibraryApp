@@ -22,6 +22,7 @@ class BidsController < ApplicationController
   def index
     @requests = Bid.requested
     @releases = Bid.borrowed
+    @losts = Bid.lost
   end
 
   def show
@@ -49,7 +50,7 @@ class BidsController < ApplicationController
   end
   def lost
     @bid = Bid.find(params[:bid_id])
-    @bid.update_attributes(status: "lost", due_date: "2012")
+    @bid.update_attributes(status: "lost")
     redirect_to root_url
     flash[:info] = "You have reported the loss of #{@bid.book.title}"
 

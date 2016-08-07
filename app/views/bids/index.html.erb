@@ -1,7 +1,6 @@
 <%# <%= link_to "Lost",  lost_path %1> %>
 
 <h1> Books Requested</h1>
-<div>
     <table>
         <tr>
             <th>ID</th>
@@ -52,8 +51,27 @@
 
         </tr>
     <% end %>
-
     </table>
-</div>
-</div>
+    <h1> LOSTS </h1>
+    <table>
+        <tr>
+        <th>ID</th>
+            <th>Username</th>
+            <th>Book title</th>
+            <th> Author </th>
+            <th> Charge </th>
+        </tr>
+        <%  @losts.each do |bid|  %>
+            <tr>
+                <td><%= bid.id %> </td>
+                <td><%= bid.user.username %> </td>
+                <td><%= bid.book.title %> </td>
+                <td><%= bid.book.author %></td>
+                        <td> <%= form_tag %>
+                <%= text_field_tag :Surcharge %>
+             </td>
+                
+        </tr>
+    <% end %>
+    </table>
 
