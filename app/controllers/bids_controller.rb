@@ -48,7 +48,11 @@ class BidsController < ApplicationController
     redirect_to bids_path
   end
   def lost
-    @book = Book.where("status =?, lost")
+    @bid = Bid.find(params[:bid_id])
+    @bid.update_attributes(status: "lost", due_date: "2012")
+    redirect_to root_url
+    flash[:info] = "You have reported the loss of #{@bid.book.title}"
+
   end
 
   private
