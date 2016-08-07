@@ -47,6 +47,9 @@ class BidsController < ApplicationController
     flash[:info] = "Book was returned!!"
     redirect_to bids_path
   end
+  def lost
+    @book = Book.where("status =?, lost")
+  end
 
   private
 
