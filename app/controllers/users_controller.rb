@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @borrowed = Bid.borrowed
+    @losts = Bid.lost
   end
 
   def index

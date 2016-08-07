@@ -29,3 +29,26 @@
 
                 </table>
                 <% end %>
+                <% if @losts.any? %>
+                <h1> LOSTS </h1>
+    <table>
+        <tr>
+        <th>ID</th>
+            <th>Book title</th>
+            <th> Author </th>
+            <th> Charge </th>
+        </tr>
+        <%  @losts.each do |bid|  %>
+    <% if current_user.id == bid.user.id %>
+            <tr>
+                <td><%= bid.id %> </td>
+                <td><%= bid.book.title %> </td>
+                <td><%= bid.book.author %></td>
+                        <td> <%= %>
+             </td>
+                
+        </tr>
+    <% end %>
+    <% end %>
+    </table>
+    <% end %>
