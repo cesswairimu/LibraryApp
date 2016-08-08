@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get 'release' => 'bids#release'
   get 'lost' => 'bids#lost'
+  get 'account' => 'bids#account'
 
   resources :users
   resources :account_activations, only:[:edit]

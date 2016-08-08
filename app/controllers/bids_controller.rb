@@ -55,6 +55,12 @@ class BidsController < ApplicationController
     flash[:info] = "You have reported the loss of #{@bid.book.title}"
 
   end
+  def account
+    @bid = Bid.find(params[:id])
+    @bid.update_attributes(status: "account")
+    render 'index'
+    flash[:info] = "Charges were recorded"
+  end
 
   private
 
