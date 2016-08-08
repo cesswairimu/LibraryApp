@@ -68,7 +68,9 @@
                 <td><%= bid.book.title %> </td>
                 <td><%= bid.book.author %></td>
                         <td> <%= form_tag %>
-                <%= text_field_tag :Surcharge %>
+                <%= text_field_tag :charges %>
+             </td>
+             <td><%= submit_tag "Account", method: :post %>
              </td>
                 
         </tr>
