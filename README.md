@@ -20,7 +20,7 @@
  
  ### Styling and Language
  * The application uses Ruby on Rails
- * Deployed in heroku for production https://ancient-woodland-35559.herokuapp.com
+ * Deployed in heroku for production 
  * Zurb foundation for styling in conjuction with css and javascript
  
  #### How to contribute
@@ -29,5 +29,19 @@
  * Improve a feature 
  * Commit the changes and create a pull request
  * Be sure of my merging if the feature is really worth it
+ #### Test the application
+> Click  https://ancient-woodland-35559.herokuapp.com
+>
+__Login as a user__
+>
+*Username: lawrence*
+>
+*Password: terrence*
+
+__Login as a librarian(admin)__
+>
+*Username: cess*
+>
+*Password: terrence*
 
 
