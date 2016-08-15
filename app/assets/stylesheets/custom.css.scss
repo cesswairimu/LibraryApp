@@ -1,22 +1,29 @@
+.background {
+    background: url('lib.jpeg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    // background-size: 100%;
+}
 .top-bar{
     li {
-    display: inline
-}
+        display: inline
+    }
 }
 flash{
-        color: black;
+    color: black;
 
 }
 #flash.danger {
-        background-color:orange;
+    background-color:orange;
 
 }
 #flash.success {
-        background-color:darkgreen; 
+    background-color:darkgreen; 
 
 }
 #flash.info {
-     background-color:skyblue;
+    background-color:skyblue;
 }
 
 #error_messages {

@@ -13,7 +13,7 @@
   </head>
 
   <body>
-
+      <div class="background">
       
     <%= render 'layouts/header' %>
     <% flash.each do |type, msg| %>
@@ -22,6 +22,7 @@
     <% end %>
 
     <%= yield %>
+    </div>
 
   </body>
 </html>
