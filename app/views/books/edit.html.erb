@@ -1,15 +1,27 @@
-<h1> Edit Book</h1>
-<%= form_for(@book) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
-    <%= f.label :title %>
-    <%= f.text_field :title %><br>
-    <%= f.label :category %>
-    <%= f.text_field :category %><br>
-    <%= f.label :quantity %>
-    <%= f.text_field :quantity %><br>
-    <%= f.label :author %>
-    <%= f.text_field :author %><br>
-    <%= f.label :publisher %>
-    <%= f.text_field :publisher %><br>
-    <%= f.submit "Save Changes" %>
-<% end %>
+<div class="row">
+    <h1> Edit Book</h1>
+    <%= form_for(@book) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <div class="small-5">
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+        </div>
+        <div class="small-5">
+            <%= f.label :category %>
+            <%= f.text_field :category %>
+        </div>
+        <div class="small-5">
+            <%= f.label :quantity %>
+            <%= f.text_field :quantity %>
+        </div>
+        <div class="small-5">
+            <%= f.label :author %>
+            <%= f.text_field :author %>
+        </div>
+        <div class="small-5">
+            <%= f.label :publisher %>
+            <%= f.text_field :publisher %>
+        </div>
+        <%= f.submit "Save Changes", class: "button" %>
+    <% end %>
+</div>

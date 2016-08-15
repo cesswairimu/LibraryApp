@@ -1,6 +1,10 @@
+<div class="row">
 <h1> Password Reset </h1>
     <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+        <div class="small-5">
         <%= f.label :username %>
         <%= f.text_field :username %> <br>
+        </div>
         <%= f.submit "Submit" %>
     <% end %>
+    </div>
