@@ -29,6 +29,7 @@
  * Improve a feature 
  * Commit the changes and create a pull request
  * Be sure of my merging if the feature is really worth it
+ >
  #### Test the application
 > Click  https://ancient-woodland-35559.herokuapp.com
 >
