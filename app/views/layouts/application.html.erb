@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+        <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-    
-  </head>
+        <%= stylesheet_link_tag    "application" %>
+        <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
 
-  <body>
-      <div class="background">
-      
-    <%= render 'layouts/header' %>
-    <% flash.each do |type, msg| %>
-        <div id="flash" class="callout small <%= type %>" data-closable>
-    <%=  msg %></div>
-    <% end %>
+    </head>
 
-    <%= yield %>
-    </div>
-    <%= render 'layouts/footer' %>
+    <body>
+        <div class="background">
 
-  </body>
+            <%= render 'layouts/header' %>
+            <% flash.each do |type, msg| %>
+                <div id="flash" class="callout small <%= type %>" data-closable>
+                    <%=  msg %></div>
+            <% end %>
+            <%= render_breadcrumbs %>
+            <%= yield %>
+        </div>
+        <%= render 'layouts/footer' %>
+
+    </body>
 </html>

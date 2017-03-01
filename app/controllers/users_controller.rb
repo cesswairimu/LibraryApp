@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    add_breadcrumb "index", index_path, :title => "Back to the Index"
     @users = User.all
   end
 
