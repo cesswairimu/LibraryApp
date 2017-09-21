@@ -18,7 +18,13 @@
     <td><%= bid.book.title %> </td>
     <td><%= bid.book.author%> </td>
     <td><%= days_remaining(bid) %> </td>
+    <% if Date.today < bid.due_date  %>
+        <% bid.charges = 0 %>
+    <% else %>
+        <% bid.charges = (Date.today - bid.due_date)* 100 %>
+        
     <td><%= bid.charges %> </td>
+    <% end %>
     <td> <%= link_to "Lost", lost_path(bid_id: bid.id),  status: "lost" , class: "button" %>
 
 
