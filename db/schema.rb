@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722052828) do
+ActiveRecord::Schema.define(version: 20170921210929) do
 
   create_table "bids", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "book_id"
-    t.datetime "due_date"
+    t.date     "due_date"
     t.float    "charges"
     t.integer  "status",     default: 0
     t.datetime "created_at",             null: false
