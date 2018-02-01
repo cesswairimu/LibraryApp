@@ -1,17 +1,15 @@
 <h1>BookLib</h1>
 <div class="row">
-    <div class="small-4 column">
-        <p> The book lib is a website for borrowing searching and looking for a book.
-        A library user is able to view the books available in the library and make a request for one
-        The librarian accepts the request and the user is notified to come and pick up the book.
-        </p>
-        <p> The user has to return a book in time or else a fine is charged. If a book is lost he/she can communicate to the librarian through
-        the website and the cost of that book is communicated to him/her.
-        </p> <p> Join now and keep the fun going you do not need to go to the library and search for a book 
-        in the shelves!!! Come on those days are gone. Welcome to 21<sup>st</sup> Centuary</p>
-        <p> <%= link_to "Signup", signup_path unless logged_in %>
-</div>
-<div class="small-8 column">
     <p> <%= image_tag('book.jpg', width: 800, height: 100,  alt: "the library") %></p>
 </div>
+<div class="row">
+    <p> The book lib is a website for borrowing searching and looking for a book.
+    A library user is able to view the books available in the library and make a request for one
+    The librarian accepts the request and the user is notified to come and pick up the book.
+    </p>
+    <p> The user has to return a book in time or else a fine is charged. If a book is lost he/she can communicate to the librarian through
+    the website and the cost of that book is communicated to him/her.
+    </p> <p> Join now and keep the fun going you do not need to go to the library and search for a book 
+    in the shelves!!! Come on those days are gone. Welcome to 21<sup>st</sup> Centuary</p>
+    <p align="center"> <%= link_to "Signup",  (signup_path unless logged_in),  class: "button large" %>
 </div>

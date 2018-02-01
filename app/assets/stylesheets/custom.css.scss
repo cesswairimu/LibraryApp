@@ -1,9 +1,5 @@
 .background {
-    background: url('lib.jpeg');
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    // background-size: 100%;
+    background: url('lines.png');
 }
 .top-bar{
     li {
@@ -53,4 +49,7 @@ flash{
     position:relative;
 
 
+}
+h1 {
+    text-align: center;
 }
