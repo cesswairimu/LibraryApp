@@ -1,19 +1,15 @@
-.background {
-    background: url('lines.png');
-}
 .top-bar{
     li {
-        display: inline
-    }
-}
-.head{
-    background-color:darkgray;
-}
-
-flash{
-    color: black;
+       display: inline;
+       font-size:20px;
+       font-weight:bold;
+       font-family:courier new;
+       a{
+       color: green;
+  }    }
 
 }
+
 #flash.danger {
     background-color:orange;
 
