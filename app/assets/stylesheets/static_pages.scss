@@ -1,3 +1,22 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+  @import 'compass';
+  @import 'mixins';
+
+#cover{
+    background-image: image-url('book1.png');
+    background-attachment: fixed;
+    position: relative;
+    height: 600px;
+    @include background-size(cover);
+    .page-centered {
+        color: white;
+        @include center-text(-50%, -50%);
+
+    }
+    p{
+        font-size: 20px;
+    }
+}
+
