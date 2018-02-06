@@ -1,7 +1,10 @@
 <div class="top-bar">
     <div class="top-bar-left">
+        <li><%=link_to image_tag("blogo.png", border: 0), {action: 'home', controller: 'static_pages'}, width:"20", height: "20"  %>
         <li><%= link_to "Home", root_path %></li>
+        <li>.</li>
         <li> <%= link_to "About", about_path %></li>
+        <li>.</li>
         <li> <%= link_to "Support", support_path %></li>
         </ul>
     </div>
@@ -22,4 +25,3 @@
         </ul>
     </div>
 </div>
-<hr>
