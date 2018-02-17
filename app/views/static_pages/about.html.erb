@@ -1,27 +1,63 @@
-<h1>About</h1>
-<div class="row">
-    <div class="small-4 column">
-        <p>Due to the advancement in technology in each day that we live the idea of one going to the library just to look
-        if you will find a certain book is becoming outdated. With the easy access to the internet you can do almost anything at
-        the comfort of your crib as you can in a library.
-        </p>
-        <p> The BookLib web application enables one to do all these. We ensure that books are always updated and the 
-        books out of the library tracked.
-        In case of a book loss the methods of replacing the book are communicated.
-        </p> 
+<div id="wrapper">
+    <div id="container">
 
-<div class="row">
-    <p> The book lib is a website for borrowing searching and looking for a book.
-    A library user is able to view the books available in the library and make a request for one
-    The librarian accepts the request and the user is notified to come and pick up the book.
-    </p>
-    <p> The user has to return a book in time or else a fine is charged. If a book is lost he/she can communicate to the librarian through
-    the website and the cost of that book is communicated to him/her.
-    </p> <p> Join now and keep the fun going you do not need to go to the library and search for a book 
-    in the shelves!!! Come on those days are gone. Welcome to 21<sup>st</sup> Centuary</p>
-</div>
-</div>
-<div class="small-8 column">
-    <p> <%= image_tag('books.jpg', width: 800, height: 100, alt: "books") %></p>
-</div>
+        <section class="open-book">
+            <header>
+                <h1>BookLib</h1>
+                <h6>The online Library</h6>
+            </header>
+            <article>
+                <h2 class="chapter-title">About BookLib</h2>
+                <p>
+                BookLib is an online website for a Library where one can borrow a book,  search through looking for a book or just browse through to see our available books.
+                </p>
+                <p>
+                The days of taking the long trip to the Library just to find a book is not there, or spending hours looking through shelves trying to trace a book are so gone.
+                </p>
+                <p>
+                With BookLib you can borrow a book at the comfort of your crib and the librian have it ready for you on the counter when you go to pick it up. 
+                </p>
+                <p>
+                Services offered by BookLib are searching, borrowing, charging if a book is past the return date. We always update our stock to make every book in th
+                Library is also available online. We send you emails to remind you of your return date to make sure you do not incur unnecessary charges.
+                </p>
+                <p>
+                With advancement in technology, reading still remains crucial because it is how we acquire knowledge. Books are magical and rumour has
+                it that they will never be extinct!!
+                </p>
+                <p>
+                We are soon launching a feature where one can have access to rare e-books for a month through the website. Some will be free and some for a small 
+                charge depending on how the author distributes the book.
+                </p>
+                <dl>
+                    <dt><strong>sign&bull;up</strong></dt>
+                    <dd>
+                    <em>noun</em><br>
+                    It's free and it's the only thing you need to do to gain access all our services.
+                    </dd>
+                </dl>
+                <p>
+                <%= link_to "Click here", signup_path %> to sign up. It is pretty simple and all we need is your name and email and your account is set of course after activating your account.
+                </p>
+                <p>
+                This how the BookLib works.
+                </p>
+                <ul>
+                    <li> You search through our Library for a book you are interested in </li>
+                    <li>
+                        Once you find the book, click on the "borrow" button beside it. The Librarian will get your request and you will be notified 
+                        when he is ready to release a book <em>The book will be ready for you when you go to the Library to pick it up</em>.
+                    </li>
+                    <li>You have free 2 weeks with a book and you can borrow a maximum of 3 books at any given time.</li>
+                    <li>After the two weeks are over you have return a book. If you are not done with it, you can tell the Librarian to postpone your return date with a maximum of 5 days</li>
+                    <li>
+                        The user has to return a book in time or else a fine is charged. If a book is lost he/she can communicate to the librarian through
+                        the website and the cost of that book is communicated to him/her.
+                    </li>
+                </ul>
+                <p>
+                Join now and Welcome to 21st Century.
+                </p>
+            </article>
+    </div>
 </div>
