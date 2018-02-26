@@ -1,38 +1,34 @@
+<hr>
 <section>
-<h1> Join the Library!!<h1>
-        <%= form_for(@user) do |f| %>
-            <%= render 'shared/error_messages', object: f.object %>
+    <h1> Join the Library!!<h1>
+            <%= form_for(@user) do |f| %>
+                <%= render 'shared/error_messages', object: f.object %>
 
-            <div class="row">
-                <div class="small-5">
-            <%= f.label :name %>
-            <%= f.text_field :name %>
-            </div>
+                <div class="row">
+                    <div class="small-8">
+                        <div class="small-offset-4">
+                            <%= f.label :name %>
+                            <%= f.text_field :name %>
 
-                <div class="small-5">
-            <%= f.label :username %>
-            <%= f.text_field :username %>
-            </div>
+                            <%= f.label :username %>
+                            <%= f.text_field :username %>
 
 
-                <div class="small-5">
-            <%= f.label :email %>
-            <%= f.email_field :email %>
-            </div>
+                            <%= f.label :email %>
+                            <%= f.email_field :email %>
 
 
-                <div class="small-5">
-            <%= f.label :password %>
-            <%= f.password_field :password %>
-            </div>
+                            <%= f.label :password %>
+                            <%= f.password_field :password %>
 
 
-                <div class="small-5">
-            <%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation %>
-            </div>
+                            <%= f.label :password_confirmation %>
+                            <%= f.password_field :password_confirmation %>
 
+                            <%= f.submit "Join",class: "button large"%>
+                        </div>
+                    </div>
+                </div>
 
-            <%= f.submit "Join",class: "button" %>
-
-        <% end %>
+            <% end %>
+</section>
