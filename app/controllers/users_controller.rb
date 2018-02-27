@@ -21,11 +21,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
-      flash.now[:info] = "Check your email to activate account"
-      #login user after sign up
-       # log_in @user
-      # render 'show'
-      #      flash[:success] = "Welcome to our Library   You have 5 days to activate"
+      flash[:info] = "Check your email to activate account"
+      redirect_to root_url
     else
       render 'new'
     end
@@ -45,7 +42,6 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-
 
   private
 
