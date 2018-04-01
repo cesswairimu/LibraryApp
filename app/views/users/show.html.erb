@@ -1,5 +1,4 @@
 <%= @user.username %> <br>
-
 <%= @user.email %> <br>
 <% if @borrowed.any? %>
 <h1> Books Borrowed </h1>
@@ -10,10 +9,8 @@
         <th> Due date </th>
         <th>Charges</th>
         </tr>
-      
 <% @borrowed.each do  |bid|%>
     <% if current_user.id == bid.user.id %>
-
         <tr>
     <td><%= bid.book.title %> </td>
     <td><%= bid.book.author%> </td>
@@ -22,19 +19,15 @@
         <% bid.charges = 0 %>
     <% else %>
         <% bid.charges = (Date.today - bid.due_date)* 100 %>
-        
     <td><%= bid.charges %> </td>
-    <% end %>
+<% end %>
     <td> <%= link_to "Lost", lost_path(bid_id: bid.id),  status: "lost" , class: "button" %>
-
-
                 </tr>
-                <% end %>
+            <% end %>
 
-                <% end %>
-
+        <% end %>
                 </table>
-                <% end %>
+            <% end %>
                 <% if @losts.any? %>
                 <h1> LOSTS </h1>
     <table>
@@ -52,9 +45,8 @@
                 <td><%= bid.book.author %></td>
                         <td> <%= %>
              </td>
-                
-        </tr>
-    <% end %>
+            </tr>
+        <% end %>
     <% end %>
     </table>
-    <% end %>
+<% end %>

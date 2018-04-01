@@ -8,8 +8,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @borrowed = Bid.borrowed
-    @losts = Bid.lost
+    @borrowed = Bid.where(status: "borrowed" , user_id: @user.id)
+    @losts = Bid.where(status: "lost" , user_id: @user.id)
   end
 
   def index
