@@ -38,7 +38,6 @@ group :development, :test do
 gem 'sqlite3'
 gem 'spring'
 gem 'rails-controller-testing'
-gem 'compass-rails'
 end
 
 group :development do
