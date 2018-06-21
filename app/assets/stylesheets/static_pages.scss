@@ -6,9 +6,9 @@
 #cover{
     background-image: image-url('book1.png');
     background-attachment: fixed;
-    position: relative;
+    background-position: relative;
+    background-size: cover;
     height: 600px;
-    // @include background-size(cover);
     .page-centered {
         color: white;
         @include center-text(-50%, -50%);
