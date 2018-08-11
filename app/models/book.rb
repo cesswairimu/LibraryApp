@@ -8,6 +8,7 @@ class Book < ApplicationRecord
       indexes :title, type: :text, analyzer: :english
       indexes :author, type: :text
       indexes :publisher, type: :text
+      indexes :quantity, type: :integer
   end
   end
 
@@ -27,4 +28,30 @@ class Book < ApplicationRecord
   def return
     increment(:quantity, 1)
   end
+
+  def self.search_available(query)
+    self.search({
+      query: {
+        bool: {
+          must: [
+            {
+              multi_match: {
+                query: query,
+                fields: [:title, :author, :publisher, :category]
+              }
+            },
+            {
+              range: {
+                quantity: {
+                  gte: 1
+                }
+              }
+            }
+          ]
+        }
+      }
+    })
+  end
+
+
 end
