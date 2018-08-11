@@ -5,6 +5,7 @@
         <td><%= book.author %></td>
         <td><%= book.quantity %></td>
         <td><%= book.publisher %><td>
+                <% unless current_user.nil? %>
                 <%= form_for current_user.bids.build do |f| %>
                     <%= f.hidden_field :user_id %>
                     <%= f.hidden_field :book_id, value: book.id %>
@@ -19,5 +20,6 @@
                         <%= link_to "delete", book, method: :delete, data: {confirm:
                                                                             "Sure you wonna do this?"} %>
                 </td>
+            <% end %>
             <% end %>
     </tr>

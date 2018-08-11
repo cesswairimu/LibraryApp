@@ -1,32 +1,48 @@
 <div class="row">
-<h1> Books In the Library</h1>
-<%= form_tag books_path, :method => 'get' do %>
-    <div class="small-4">
-<%= text_field_tag :search, params[:search] %>
-<%= submit_tag "Search", :name => nil %>
-</div>
-<% end %>
-<% if current_user.admin %>
-    <ul class="top-bar">
-    <li> <%= link_to "Add Book", new_book_path %> |
-    <li> <%= link_to "Manage Books", bids_path %>
-    <ul>
- <% end %>
+    <h1> Books In the Library</h1>
+    <%= form_tag books_path, :method => 'get' do %>
+        <div class="small-4">
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Search", :name => nil %>
+        </div>
+    <% end %>
+    <% if current_user.nil? %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th> id</th>
+                            <th> Title </th>
+                            <th> Category </th>
+                            <th> Author</th>
+                            <th> Quantity</th>
+                            <th> Publisher</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%= render @books %>
+                    </tbody>
+                </table>
+    <% elsif current_user.admin %>
+        <ul class="top-bar">
+            <li> <%= link_to "Add Book", new_book_path %> |
+                <li> <%= link_to "Manage Books", bids_path %>
+                <ul>
+                <% end %>
 
-<table>
-    <thead>
-        <tr>
-            <th> id</th>
-            <th> Title </th>
-            <th> Category </th>
-            <th> Author</th>
-            <th> Quantity</th>
-            <th> Publisher</th>
-        </tr>
-    </thead>
-    <tbody>
-        <%= render @books %>
-    </tbody>
-</table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th> id</th>
+                            <th> Title </th>
+                            <th> Category </th>
+                            <th> Author</th>
+                            <th> Quantity</th>
+                            <th> Publisher</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%= render @books %>
+                    </tbody>
+                </table>
 </div>
 
