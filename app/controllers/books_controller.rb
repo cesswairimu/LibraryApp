@@ -38,11 +38,18 @@ class BooksController < ApplicationController
       render 'edit'
     end
   end
-  #destroy a  book
+
   def destroy
     Book.find(params[:id]).destroy
     flash[:info] = "Book has been deleted"
     redirect_to books_url
+  end
+
+  def search
+    query = params[:search_books].presence && params[:search_books][:query]
+    if query
+      @books = Book.search_available(query)
+    end
   end
 
   private

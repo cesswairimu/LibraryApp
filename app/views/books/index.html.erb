@@ -1,10 +1,25 @@
 <div class="row">
     <h1> Books In the Library</h1>
     <%= form_tag books_path, :method => 'get' do %>
-        <div class="small-4">
-            <%= text_field_tag :search, params[:search] %>
-            <%= submit_tag "Search", :name => nil %>
-        </div>
+            <%# <%= text_field_tag :search, params[:search] %1> %>
+            <%# <%= submit_tag "Search", :name => nil %1> %>
+            <p id="notice"><%= notice %></p>
+
+            <p>
+            Press <%= link_to 'here', search_books_path %> to search for books.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                        <div class="small-4">
+                        </th>
+                    </tr>
+                </thead>
+
+                </h></p>
+                <%# </div> %>
     <% end %>
     <% if current_user.nil? %>
                 <table>
