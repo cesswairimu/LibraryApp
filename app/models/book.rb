@@ -1,4 +1,7 @@
 class Book < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   has_many :users
   has_many :bids
   default_scope -> { order(id: :asc)  }
