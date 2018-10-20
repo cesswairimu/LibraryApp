@@ -13,42 +13,42 @@
 ActiveRecord::Schema.define(version: 20160720133330) do
 
   create_table "bids", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "book_id"
-    t.date     "due_date"
-    t.float    "charges"
-    t.integer  "status",     default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer "user_id"
+    t.integer "book_id"
+    t.date "due_date"
+    t.float "charges"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_bids_on_book_id"
     t.index ["user_id", "book_id"], name: "index_bids_on_user_id_and_book_id", unique: true
     t.index ["user_id"], name: "index_bids_on_user_id"
   end
 
   create_table "books", force: :cascade do |t|
-    t.string   "title"
-    t.string   "category"
-    t.integer  "quantity"
-    t.string   "author"
-    t.string   "publisher"
+    t.string "title"
+    t.string "category"
+    t.integer "quantity"
+    t.string "author"
+    t.string "publisher"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "username"
-    t.string   "email"
-    t.string   "password_digest"
-    t.string   "remember_digest"
-    t.string   "activation_digest"
-    t.boolean  "activated",         default: false
+    t.string "name"
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
+    t.string "remember_digest"
+    t.string "activation_digest"
+    t.boolean "activated", default: false
     t.datetime "activated_at"
-    t.string   "reset_digest"
+    t.string "reset_digest"
     t.datetime "reset_sent_at"
-    t.boolean  "admin",             default: false
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.boolean "admin", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
